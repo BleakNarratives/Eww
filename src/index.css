@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-slime: #CCFF00;
+  --color-canary: #FFFF00;
+  --color-executive-navy: #0A192F;
+  --color-executive-gold: #D4AF37;
+  --color-executive-silver: #C0C0C0;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-sans antialiased overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+  
+  .glitch-text {
+    text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
+  }
+
+  .pinstripe {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(192, 192, 192, 0.05) 40px,
+      rgba(192, 192, 192, 0.05) 41px
+    );
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
